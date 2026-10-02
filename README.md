@@ -1,19 +1,18 @@
 # 📱 ZEXANO SMS
 
-**ZEXANO SMS** هو تطبيق Flutter لإدارة جهات الاتصال والمجموعات وتنظيم وإعداد الرسائل الجماعية عبر SMS وWhatsApp، مع التركيز على الخصوصية والعمل المحلي على الجهاز.
+**ZEXANO SMS** هو تطبيق Flutter لإدارة جهات الاتصال والمجموعات وتنظيم وتجهيز الرسائل الجماعية عبر SMS وWhatsApp، مع التركيز على الخصوصية والعمل المحلي على الجهاز.
 
 ---
 
 ## 📋 ملخص المشروع
 
-تم تطوير **ZEXANO SMS** لتوفير بيئة منظمة لإدارة جهات الاتصال والمجموعات وإعداد حملات الرسائل الجماعية.
+تم تطوير **ZEXANO SMS** لتوفير بيئة منظمة لإدارة جهات الاتصال والمجموعات وتجهيز حملات الرسائل الجماعية.
 
 يسمح التطبيق للمستخدم بإدارة جهات الاتصال، تصنيفها ضمن مجموعات، إنشاء قوالب للرسائل، تجهيز المستلمين، واستعراض سجل الرسائل والعمليات السابقة.
 
 يعتمد التطبيق على التخزين المحلي، ولا يتطلب إنشاء حساب أو مزامنة البيانات مع خوادم خارجية.
 
-> **ملاحظة:** طبقة إرسال SMS وWhatsApp الحالية تستخدم Implementations تجريبية (`NoopSmsDispatcher` و`NoopWhatsAppLauncher`).  
-> البنية البرمجية مجهزة لربطها لاحقًا بآليات الإرسال الخاصة بالمنصة، لكن الإرسال الفعلي عبر شبكة الهاتف أو تشغيل WhatsApp غير مفعّل في الإصدار الحالي.
+> **ملاحظة:** طبقة إرسال SMS وWhatsApp الحالية تستخدم Implementations تجريبية (`NoopSmsDispatcher` و`NoopWhatsAppLauncher`). البنية البرمجية مجهزة لربطها لاحقًا بآليات الإرسال الخاصة بالمنصة، لكن الإرسال الفعلي عبر شبكة الهاتف أو تشغيل WhatsApp كمرسل آلي غير مفعّل في الإصدار الحالي.
 
 ---
 
@@ -57,7 +56,7 @@
 
 - تجهيز قائمة المستلمين.
 - الانتقال بين المستلمين واحدًا تلو الآخر.
-- استخدام WhatsApp Deep Links لفتح جهة الاتصال/المحادثة عند تفعيل التكامل المناسب.
+- استخدام WhatsApp Deep Links لفتح جهة الاتصال أو المحادثة عند تفعيل التكامل المناسب.
 
 ### 📨 سجل الرسائل
 
@@ -137,15 +136,16 @@
 |---|---|
 | Framework | Flutter 3.16.x |
 | Language | Dart |
-| State Management | Riverpod |
-| Routing | go_router |
+| State Management | Riverpod (`flutter_riverpod`) |
+| Routing | `go_router` |
 | Database | Drift / SQLite |
 | Local Storage | SharedPreferences |
-| Dependency Injection | get_it |
-| Error Handling | dartz / Either |
+| Dependency Injection | `get_it` |
+| Error Handling | `dartz` / Either |
 | Encryption | AES-256-CBC |
 | Integrity Verification | SHA-256 |
-| Testing | flutter_test / mocktail / integration_test |
+| Testing | `flutter_test` / `mocktail` / `integration_test` |
+| Native Splash | `flutter_native_splash` |
 
 ---
 
@@ -172,21 +172,20 @@
 ```text
 zexano_sms/
 │
-├── android/              # Android platform implementation
-├── ios/                  # iOS platform implementation
-├── lib/                  # Flutter application source
+├── android/                  # Android platform implementation
+├── ios/                      # iOS platform implementation
+├── lib/                      # Flutter application source
 │
-├── test/                 # Unit and widget tests
-├── integration_test/     # Integration tests
+├── test/                     # Unit and widget tests
+├── integration_test/         # Integration tests
 │
-├── docs/                 # Project documentation
-│
-├── image/                # Project and application assets
+├── docs/                     # Project documentation
+├── image/                    # Project and application assets
 │
 ├── .github/
-│   └── workflows/        # GitHub Actions / CI
+│   └── workflows/            # GitHub Actions / CI
 │
-├── pubspec.yaml          # Flutter dependencies
-├── pubspec.lock          # Locked dependency versions
+├── pubspec.yaml              # Flutter dependencies
+├── pubspec.lock              # Locked dependency versions
 ├── flutter_native_splash.yaml
 └── README.md
