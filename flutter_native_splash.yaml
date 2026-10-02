@@ -1,0 +1,37 @@
+flutter_native_splash:
+
+  # ==========================================
+  # ZEXANO SMS Native Splash
+  # ==========================================
+
+  # الخلفية الأساسية المستوحاة من هوية ZEXANO
+  color: "#061A3A"
+  color_dark: "#061A3A"
+
+  # التصميم الكامل الذي أنشأناه
+  image: image/Face-zexano-sms.png
+
+  # الحفاظ على التصميم في المنتصف
+  android_gravity: center
+  ios_content_mode: center
+
+  # إخفاء شريط الإشعارات أثناء ظهور الـ Splash
+  fullscreen: true
+
+  # ==========================================
+  # Android 12+
+  # ==========================================
+
+  android_12:
+
+    # Android 12 يدعم لون خلفية واحد
+    color: "#061A3A"
+    color_dark: "#061A3A"
+
+    # شعار ZEXANO فقط
+    # وليس صورة Face-zexano-sms.png
+    image: image/zexano-icon.png
+
+    # خلفية خلف الشعار
+    icon_background_color: "#061A3A"
+    icon_background_color_dark: "#061A3A"
