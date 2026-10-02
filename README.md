@@ -1,64 +1,192 @@
-# Zexano SMS
+# 📱 ZEXANO SMS
 
-A privacy-first, local-only Flutter application for organizing contacts and sending bulk SMS and WhatsApp messages.
+**ZEXANO SMS** هو تطبيق Flutter لإدارة جهات الاتصال والمجموعات وتنظيم وإعداد الرسائل الجماعية عبر SMS وWhatsApp، مع التركيز على الخصوصية والعمل المحلي على الجهاز.
 
-## Features
+---
 
-- **Contact Management** — Add, edit, search, tag, and favorite contacts.
-- **Group Management** — Create groups and manage membership in bulk.
-- **Bulk SMS** — Compose messages, select recipients, use templates, and send in bulk.
-- **Assisted WhatsApp** — Stage recipients and step through one at a time via WhatsApp deep links.
-- **Message History** — Unified timeline with filtering, statistics, and search.
-- **Local Backup & Restore** — Encrypted or plain JSON export with integrity verification.
-- **Customization** — Light/dark/system theme, English/Arabic localization.
+## 📋 ملخص المشروع
 
-## Important Notes
+تم تطوير **ZEXANO SMS** لتوفير بيئة منظمة لإدارة جهات الاتصال والمجموعات وإعداد حملات الرسائل الجماعية.
 
-- **SMS and WhatsApp sending use stub implementations** (`NoopSmsDispatcher`, `NoopWhatsAppLauncher`). The architecture is ready for platform-specific dispatchers but none are wired in yet. Messages are recorded as sent but no actual carrier transmission or WhatsApp launch occurs.
-- **All data stays on your device.** No accounts, no cloud sync, no data collection.
+يسمح التطبيق للمستخدم بإدارة جهات الاتصال، تصنيفها ضمن مجموعات، إنشاء قوالب للرسائل، تجهيز المستلمين، واستعراض سجل الرسائل والعمليات السابقة.
 
-## Quick Start
+يعتمد التطبيق على التخزين المحلي، ولا يتطلب إنشاء حساب أو مزامنة البيانات مع خوادم خارجية.
 
-```bash
-flutter pub get
-dart run build_runner build --delete-conflicting-outputs
-flutter analyze        # Expected: 0 errors, 0 warnings
-flutter test --exclude-tags=integration   # Expected: All tests pass
-```
+> **ملاحظة:** طبقة إرسال SMS وWhatsApp الحالية تستخدم Implementations تجريبية (`NoopSmsDispatcher` و`NoopWhatsAppLauncher`).  
+> البنية البرمجية مجهزة لربطها لاحقًا بآليات الإرسال الخاصة بالمنصة، لكن الإرسال الفعلي عبر شبكة الهاتف أو تشغيل WhatsApp غير مفعّل في الإصدار الحالي.
 
-## Documentation
+---
 
-| Document | Description |
-|---|---|
-| `docs/setup_guide.md` | Development environment setup |
-| `docs/testing_guide.md` | Test suite overview and instructions |
-| `docs/release_guide.md` | Android and iOS release process |
-| `docs/privacy_policy.md` | Privacy policy template |
-| `docs/terms_of_service.md` | Terms of service template |
-| `docs/store_listing.md` | App store listing specification |
-| `docs/known_limitations.md` | Current known limitations |
-| `docs/qa_release_checklist.md` | Pre-release QA checklist |
-| `docs/integration_verification.md` | Final integration test results |
+## 🎯 أهداف المشروع
 
-## Tech Stack
+- تنظيم وإدارة جهات الاتصال بطريقة سهلة.
+- إنشاء وإدارة مجموعات المستلمين.
+- تجهيز الرسائل الجماعية باستخدام قوالب جاهزة.
+- توفير سجل موحد للرسائل والعمليات.
+- دعم البحث والتصفية والإحصائيات.
+- توفير آلية للنسخ الاحتياطي والاستعادة.
+- الحفاظ على بيانات المستخدم محليًا على الجهاز.
+- توفير واجهة تدعم اللغتين العربية والإنجليزية.
+- دعم الوضع الفاتح والداكن ووضع النظام.
 
-| Layer | Technology |
+---
+
+## 🧩 مكونات النظام
+
+### 👥 إدارة جهات الاتصال
+
+- إضافة جهات الاتصال وتعديلها.
+- البحث عن جهات الاتصال.
+- تصنيف جهات الاتصال باستخدام Tags.
+- إضافة جهات الاتصال إلى المفضلة.
+
+### 👨‍👩‍👧‍👦 إدارة المجموعات
+
+- إنشاء مجموعات مخصصة.
+- إضافة وإزالة الأعضاء.
+- إدارة عضوية عدة جهات اتصال بطريقة منظمة.
+
+### 💬 الرسائل الجماعية
+
+- إنشاء الرسائل.
+- اختيار المستلمين.
+- استخدام قوالب الرسائل.
+- تجهيز الرسائل للإرسال الجماعي.
+
+### 🟢 WhatsApp
+
+- تجهيز قائمة المستلمين.
+- الانتقال بين المستلمين واحدًا تلو الآخر.
+- استخدام WhatsApp Deep Links لفتح جهة الاتصال/المحادثة عند تفعيل التكامل المناسب.
+
+### 📨 سجل الرسائل
+
+- عرض سجل موحد للرسائل.
+- البحث داخل السجل.
+- التصفية.
+- عرض الإحصائيات.
+- تتبع العمليات السابقة.
+
+### 💾 النسخ الاحتياطي والاستعادة
+
+- تصدير البيانات إلى JSON.
+- استيراد البيانات من ملفات النسخ الاحتياطي.
+- دعم النسخ الاحتياطي المشفر أو العادي.
+- التحقق من سلامة البيانات باستخدام SHA-256.
+
+---
+
+## 🔐 الخصوصية وحماية البيانات
+
+تم تصميم التطبيق وفق مبدأ **Local-First / Privacy-First**.
+
+- لا يتطلب حسابًا.
+- لا يعتمد على خدمة Cloud للمزامنة.
+- البيانات تبقى محليًا على جهاز المستخدم.
+- لا توجد عملية جمع بيانات مركزية.
+- يدعم تشفير النسخ الاحتياطية.
+- يستخدم SHA-256 للتحقق من سلامة البيانات.
+
+---
+
+## 🎨 الواجهة وتجربة المستخدم
+
+يدعم التطبيق:
+
+- 🌙 الوضع الداكن.
+- ☀️ الوضع الفاتح.
+- 🖥️ الوضع المطابق لإعدادات النظام.
+- 🇸🇦 اللغة العربية.
+- 🇬🇧 اللغة الإنجليزية.
+
+---
+
+## 🧑‍💻 دليل الاستخدام
+
+### 1️⃣ إدارة جهات الاتصال
+
+ابدأ بإضافة جهات الاتصال وتعديل بياناتها، ثم استخدم البحث والتصنيفات والمفضلة لتنظيم القائمة.
+
+### 2️⃣ إنشاء المجموعات
+
+أنشئ مجموعات حسب طبيعة المستلمين، ثم أضف جهات الاتصال المناسبة إلى كل مجموعة.
+
+### 3️⃣ تجهيز رسالة جماعية
+
+أنشئ الرسالة، اختر المستلمين أو المجموعة المطلوبة، ثم استخدم القوالب عند الحاجة.
+
+### 4️⃣ استخدام WhatsApp
+
+يمكن تجهيز المستلمين والانتقال بينهم بشكل متتابع باستخدام WhatsApp Deep Links.
+
+### 5️⃣ مراجعة السجل
+
+استخدم سجل الرسائل للبحث والتصفية ومراجعة العمليات والإحصائيات.
+
+### 6️⃣ النسخ الاحتياطي
+
+يمكن تصدير بيانات التطبيق إلى ملف JSON واستعادتها لاحقًا، مع إمكانية استخدام النسخ الاحتياطي المشفر.
+
+---
+
+## 🛠️ دليل المطور
+
+### 💡 التقنيات المستخدمة
+
+| المجال | التقنية |
 |---|---|
 | Framework | Flutter 3.16.x |
-| State Management | Riverpod (flutter_riverpod) |
+| Language | Dart |
+| State Management | Riverpod |
 | Routing | go_router |
-| Database | Drift (SQLite ORM) |
+| Database | Drift / SQLite |
 | Local Storage | SharedPreferences |
-| DI | get_it |
-| Error Handling | dartz (Either) |
-| Encryption | AES-256-CBC (crypto package) |
-| Integrity | SHA-256 (crypto package) |
-| Testing | flutter_test, mocktail, integration_test |
+| Dependency Injection | get_it |
+| Error Handling | dartz / Either |
+| Encryption | AES-256-CBC |
+| Integrity Verification | SHA-256 |
+| Testing | flutter_test / mocktail / integration_test |
 
-## CI
+---
 
-See `.github/workflows/ci.yml` — runs analyze, test (with coverage), integration-test, and build on every push to main/develop.
+## 🏗️ البنية البرمجية
 
-## License
+يعتمد المشروع على فصل مسؤوليات التطبيق إلى طبقات ومكونات مستقلة، مع استخدام Riverpod لإدارة الحالة وDrift للتعامل مع قاعدة البيانات المحلية.
 
-Private. All rights reserved.
+يتضمن المشروع مكونات رئيسية لإدارة:
+
+- 👥 جهات الاتصال.
+- 👨‍👩‍👧‍👦 المجموعات.
+- 💬 الرسائل.
+- 📨 سجل الرسائل.
+- 💾 النسخ الاحتياطي والاستعادة.
+- 🔗 تكامل WhatsApp.
+- 📱 تكامل SMS.
+- 🗄️ قاعدة البيانات المحلية.
+- 🧪 الاختبارات.
+
+---
+
+## 📂 هيكل المشروع
+
+```text
+zexano_sms/
+│
+├── android/              # Android platform implementation
+├── ios/                  # iOS platform implementation
+├── lib/                  # Flutter application source
+│
+├── test/                 # Unit and widget tests
+├── integration_test/     # Integration tests
+│
+├── docs/                 # Project documentation
+│
+├── image/                # Project and application assets
+│
+├── .github/
+│   └── workflows/        # GitHub Actions / CI
+│
+├── pubspec.yaml          # Flutter dependencies
+├── pubspec.lock          # Locked dependency versions
+├── flutter_native_splash.yaml
+└── README.md
